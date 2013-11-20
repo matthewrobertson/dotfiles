@@ -1,0 +1,2 @@
+color desert
+:nnoremap <CR> :nohlsearch<cr>
