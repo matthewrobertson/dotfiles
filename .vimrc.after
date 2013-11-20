@@ -2,6 +2,7 @@
 
 color railscasts
 highlight LineNr guibg=#222222 guifg=#666666
-highlight Normal guibg=#1B1B1B 
+highlight Normal guibg=#1B1B1B
 hi! VertSplit guifg=#333333 guibg=#333333 gui=NONE
+hi Directory guifg=#9CBA3F ctermfg=green
 :set cursorline
