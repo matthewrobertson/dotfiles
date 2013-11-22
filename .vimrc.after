@@ -1,6 +1,17 @@
+" ENTER to hide highlighted search matches
 nnoremap <CR> :nohlsearch<cr>
+" ,t to refresh and open fuzzy finder
 map <leader>t :CtrlPClearCache<cr>\|:CtrlP<cr>
+" Double tap j to exit insert mode
+imap jj <Esc>
+" Double tap , to go to previous file
+nnoremap <leader><leader> <c-^>
+" Use \ to toggle NERDTree
+nnoremap \ :NERDTreeToggle<CR>
+" make the timeout pretty fast
+set timeout timeoutlen=200
 
+" Style tweeks
 color railscasts
 highlight LineNr guibg=#222222 guifg=#666666
 highlight Normal guibg=#1B1B1B
