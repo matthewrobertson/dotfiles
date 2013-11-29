@@ -11,6 +11,12 @@ nnoremap \ :NERDTreeToggle<CR>
 " make the timeout pretty fast
 set timeout timeoutlen=200
 
+" remove trailing whitespace on save
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+endfunction
+autocmd BufWritePre *.rb,*.js :call TrimWhiteSpace()
+
 " Style tweeks
 color railscasts
 highlight LineNr guibg=#222222 guifg=#666666
