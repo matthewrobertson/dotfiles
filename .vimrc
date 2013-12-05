@@ -17,15 +17,38 @@ set encoding=utf-8    " Set default encoding to UTF-8
 ""
 "" No fucking beeping
 ""
+
 set noerrorbells visualbell t_vb=
 if has('autocmd')
   autocmd GUIEnter * set visualbell t_vb=
 endif
 
+"
+"" facebook-specific
+"
+
+if $ADMIN_SCRIPTS == ""
+  let $ADMIN_SCRIPTS = "/mnt/vol/engshare/admin/scripts"
+endif
+set runtimepath+=$ADMIN_SCRIPTS/vim
+
+" error log, hzhao's nemo
+" TODO: can we make these more specifically depend on the error file
+"   (like only 'vim -q blah.nemo' would try the nemo errorformat)
+set errorformat+=%.%#PHP:\ %m\ \(in\ %f\ on\ line\ %l\)%.%#,
+  \%E%[0-9]%#.%m:%f?rev=%.%##L%l\ %.%#,%C%.%#
+
+" automatically load svn-commit template
+if $SVN_COMMIT_TEMPLATE == ""
+  let $SVN_COMMIT_TEMPLATE = "$ADMIN_SCRIPTS/templates/svn-commit-template.txt"
+endif
+autocmd BufNewFile,BufRead svn-commit.*tmp :0r $SVN_COMMIT_TEMPLATE
+
 ""
 "" Whitespace
 ""
 
+set softtabstop=2
 set nowrap                        " don't wrap lines
 set tabstop=2                     " a tab is two spaces
 set shiftwidth=2                  " an autoindent (with <<) is two spaces
@@ -34,10 +57,16 @@ set list                          " Show invisible characters
 set backspace=indent,eol,start    " backspace through everything in insert mode
 
 " remove trailing whitespace on save
-function! TrimWhiteSpace()
-    %s/\s\+$//e
-endfunction
-autocmd BufWritePre *.rb,*.js :call TrimWhiteSpace()
+fun! <SID>StripTrailingWhitespaces()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
+endfun
+
+autocmd FileType c,cabal,cpp,haskell,javascript,php,python,readme,text
+  \ autocmd BufWritePre <buffer>
+  \ :call <SID>StripTrailingWhitespaces()
 
 if exists("g:enable_mvim_shift_arrow")
   let macvim_hig_shift_movement = 1 " mvim shift-arrow-keys
