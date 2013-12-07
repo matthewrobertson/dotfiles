@@ -31,3 +31,6 @@
 [submodule ".vim/bundle/railscast-theme"]
 	path = .vim/bundle/railscast-theme
 	url = https://github.com/jpo/vim-railscasts-theme.git
+[submodule ".vim/bundle/distinguished-theme"]
+	path = .vim/bundle/distinguished-theme
+	url = https://github.com/Lokaltog/vim-distinguished.git
