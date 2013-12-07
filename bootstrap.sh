@@ -2,4 +2,9 @@
 rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" \
   --exclude "README.md" --exclude "LICENSE-MIT.txt" --exclude ".gitmodules" \
   -av --no-perms . ~
-source ~/.bash_profile
+
+if [[ -f ~/.bash_profile ]]; then
+  source ~/.bash_profile
+fi
+
+echo "You should do $ source ~/.zshrc"
