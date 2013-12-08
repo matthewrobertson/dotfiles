@@ -128,9 +128,9 @@ set directory^=~/.vim/_temp//      " where to put swap files.
 ""
 
 if has("autocmd")
-	filetype plugin indent on
+  filetype plugin indent on
   " In Makefiles, use real tabs, not tabs expanded to spaces
-	au FileType make setlocal noexpandtab
+  au FileType make setlocal noexpandtab
   " Treat JSON files like JavaScript
   au BufNewFile,BufRead *.json set ft=javascript
   " make Python whitespace
@@ -148,7 +148,7 @@ endif
 
 set timeout timeoutlen=300                       " make the timeout pretty fast
 map <leader>t :CtrlPClearCache<cr>\|:CtrlP<cr>   " ,t to refresh and open fuzzy finder
-imap jj <Esc>                                    " Double tap j to exit insert mode
+inoremap jj <Esc>                                " Double tap j to exit insert mode
 nnoremap <leader><leader> <c-^>                  " Double tap , to go to previous file
 nnoremap \ :NERDTreeToggle<CR>                   " Use \ to toggle NERDTree
 
@@ -156,9 +156,28 @@ nnoremap \ :NERDTreeToggle<CR>                   " Use \ to toggle NERDTree
 " Style tweeks
 "
 
-color railscasts
-highlight LineNr guibg=#222222 guifg=#666666 ctermbg=black ctermfg=grey
-highlight Normal guibg=#1B1B1B
-hi! VertSplit guifg=#333333 guibg=#333333 gui=NONE ctermfg=black ctermbg=black cterm=NONE
-hi Directory guifg=#9CBA3F ctermfg=green
+" color distinguished
+" highlight LineNr guibg=#222222 guifg=#666666 ctermbg=black ctermfg=grey
+" highlight Normal guibg=#1B1B1B
+" hi! VertSplit guifg=#333333 guibg=#333333 gui=NONE ctermfg=black ctermbg=black cterm=NONE
+" hi Directory guifg=#9CBA3F ctermfg=green
 set cursorline
+
+color molokai
+let g:molokai_original = 1
+" set background=dark
+" 
+" highlight clear SignColumn
+" highlight VertSplit    ctermbg=236
+" highlight ColorColumn  ctermbg=237
+" highlight LineNr       ctermbg=236 ctermfg=240
+highlight CursorLineNr ctermbg=236 ctermfg=240
+highlight CursorLine   ctermbg=234
+" highlight StatusLineNC ctermbg=238 ctermfg=0
+" highlight StatusLine   ctermbg=240 ctermfg=12
+" highlight IncSearch    ctermbg=0   ctermfg=3
+" highlight Search       ctermbg=0   ctermfg=9
+highlight Visual       ctermbg=3   ctermfg=0
+" highlight Pmenu        ctermbg=240 ctermfg=12
+" highlight PmenuSel     ctermbg=0   ctermfg=3
+" highlight SpellBad     ctermbg=0   ctermfg=1

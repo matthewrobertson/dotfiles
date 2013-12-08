@@ -34,3 +34,6 @@
 [submodule ".vim/bundle/distinguished-theme"]
 	path = .vim/bundle/distinguished-theme
 	url = https://github.com/Lokaltog/vim-distinguished.git
+[submodule ".vim/bundle/molokai-theme"]
+	path = .vim/bundle/molokai-theme
+	url = https://github.com/tomasr/molokai.git
