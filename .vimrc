@@ -146,11 +146,16 @@ endif
 "" Key mappings
 ""
 
-set timeout timeoutlen=300                       " make the timeout pretty fast
-map <leader>t :CtrlPClearCache<cr>\|:CtrlP<cr>   " ,t to refresh and open fuzzy finder
-inoremap jj <Esc>                                " Double tap j to exit insert mode
-nnoremap <leader><leader> <c-^>                  " Double tap , to go to previous file
-nnoremap \ :NERDTreeToggle<CR>                   " Use \ to toggle NERDTree
+" make the timeout pretty fast
+set timeout timeoutlen=300
+" ,t to refresh and open fuzzy finder
+map <leader>t :CtrlPClearCache<cr>\|:CtrlP<cr>
+" Double tap j to exit insert mode
+inoremap jj <Esc>
+" Double tap , to go to previous file
+nnoremap <leader><leader> <c-^>
+" Use \ to toggle NERDTree
+nnoremap \ :NERDTreeToggle<CR>
 
 "
 " Style tweeks
