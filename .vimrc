@@ -133,12 +133,12 @@ nnoremap <CR> :nohlsearch<cr>
 color molokai
 let g:molokai_original = 1
 set cursorline
-set colorcolumn=80
-set relativenumber    " Use relative line numbers
+set number
 highlight CursorLineNr ctermfg=200
 highlight CursorLine   ctermbg=234
 highlight Visual       ctermbg=3   ctermfg=0
 
+" set relativenumber    " Use relative line numbers
 " highlight clear SignColumn
 " highlight VertSplit    ctermbg=236
 " highlight ColorColumn  ctermbg=237
