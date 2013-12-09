@@ -2,6 +2,9 @@
 "" facebook-specific vim stuff
 "
 
+" Note the following runs as part of .zshrc:
+" ln -s /home/engshare/hack-tools/vim/ ~/.vim/bundle/hack-vim
+
 if $ADMIN_SCRIPTS == ""
   let $ADMIN_SCRIPTS = "/mnt/vol/engshare/admin/scripts"
 endif

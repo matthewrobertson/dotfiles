@@ -1,3 +1,11 @@
+""
+"" Basic Setup
+""
+set nocompatible      " Use vim, no vi defaults
+set ruler             " Show line and column number
+syntax enable         " Turn on syntax highlighting allowing local overrides
+set encoding=utf-8    " Set default encoding to UTF-8
+
 " turn on pathogen
 execute pathogen#infect()
 
@@ -7,17 +15,10 @@ let mapleader=","
 ""
 "" Facebook Specific Stuff
 ""
-if filereadable(expand("~/.fb.before"))
-  source ~/.fb.before
+if filereadable(expand("~/.fb.vimrc"))
+  source ~/.fb.vimrc
 endif
 
-""
-"" Basic Setup
-""
-set nocompatible      " Use vim, no vi defaults
-set ruler             " Show line and column number
-syntax enable         " Turn on syntax highlighting allowing local overrides
-set encoding=utf-8    " Set default encoding to UTF-8
 
 ""
 "" No fucking beeping

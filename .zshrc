@@ -5,6 +5,9 @@ ZSH=$HOME/.oh-my-zsh
 if id -u engshare >/dev/null 2>&1; then
   export ADMIN_SCRIPTS=~engshare/admin/scripts
   source "$ADMIN_SCRIPTS"/master.zshrc
+
+  # symlink vim tools
+  ln -Fs /home/engshare/hack-tools/vim/ ~/.vim/bundle/hack-vim
 fi
 
 # Set name of the theme to load.
