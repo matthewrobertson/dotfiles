@@ -130,6 +130,7 @@ nnoremap <CR> :nohlsearch<cr>
 ""
 "" Style tweeks
 ""
+set t_Co=256
 color molokai
 let g:molokai_original = 1
 set cursorline
