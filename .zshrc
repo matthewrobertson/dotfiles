@@ -10,6 +10,9 @@ if id -u engshare >/dev/null 2>&1; then
   ln -Fs /home/engshare/hack-tools/vim/ ~/.vim/bundle/hack-vim
 fi
 
+if -a "$HOME"/.fb.zshrc; then
+  source "$HOME"/.fb.zshrc
+fi
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -61,6 +64,8 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+export PATH=$PATH:/Users/mrobertson/opsrc/depot_tools
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Preferred editor for local and remote sessions
