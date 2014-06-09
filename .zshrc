@@ -10,7 +10,7 @@ if id -u engshare >/dev/null 2>&1; then
   ln -Fs /home/engshare/hack-tools/vim/ ~/.vim/bundle/hack-vim
 fi
 
-if -a "$HOME"/.fb.zshrc; then
+if [[ -a "$HOME"/.fb.zshrc ]]; then
   source "$HOME"/.fb.zshrc
 fi
 # Set name of the theme to load.
