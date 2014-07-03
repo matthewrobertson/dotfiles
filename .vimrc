@@ -29,14 +29,6 @@ if has('autocmd')
 endif
 
 ""
-"" No fucking beeping
-""
-set noerrorbells visualbell t_vb=
-if has('autocmd')
-  autocmd GUIEnter * set visualbell t_vb=
-endif
-
-""
 "" Whitespace
 ""
 set softtabstop=2
@@ -138,6 +130,15 @@ set number
 highlight CursorLineNr ctermfg=200
 highlight CursorLine   ctermbg=234
 highlight Visual       ctermbg=3   ctermfg=0
+
+""
+"" Highlight lines > 80 characters
+""
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
 
 " set relativenumber    " Use relative line numbers
 " highlight clear SignColumn
