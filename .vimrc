@@ -17,9 +17,14 @@ let mapleader=","
 ""
 if filereadable(expand("~/.fb.vimrc"))
   " make ctrlp root the current file only
-  let g:ctrlp_working_path_mode = 'c'
   source ~/.fb.vimrc
 endif
+
+""
+"" Ctrl-p stuff
+""
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_root_markers = ['.ctrlp']
 
 
 ""
@@ -60,7 +65,7 @@ endif
 ""
 "" Ignored file type
 ""
-set wildignore=*.o,*~,*.pyc,*.orig
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.orig
 let NERDTreeIgnore = ['\.pyc$', '\.orig$']
 
 ""

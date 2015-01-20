@@ -1,0 +1,4 @@
+# Note you need to point to this file in your .hgrc:
+# [ui]
+# ignore = ~/hgignore
+.ctrlp
