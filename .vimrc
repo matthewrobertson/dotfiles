@@ -16,6 +16,8 @@ let mapleader=","
 "" Facebook Specific Stuff
 ""
 if filereadable(expand("~/.fb.vimrc"))
+  " make ctrlp root the current file only
+  let g:ctrlp_working_path_mode = 'c'
   source ~/.fb.vimrc
 endif
 
@@ -54,6 +56,12 @@ autocmd FileType c,cabal,cpp,haskell,javascript,php,python,readme,text,ruby
 if exists("g:enable_mvim_shift_arrow")
   let macvim_hig_shift_movement = 1 " mvim shift-arrow-keys
 endif
+
+""
+"" Ignored file type
+""
+set wildignore=*.o,*~,*.pyc,*.orig
+let NERDTreeIgnore = ['\.pyc$', '\.orig$']
 
 ""
 "" List Characters
