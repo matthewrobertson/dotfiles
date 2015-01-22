@@ -120,6 +120,8 @@ endif
 set timeout timeoutlen=300
 " ,t to refresh and open fuzzy finder
 map <leader>t :CtrlPClearCache<cr>\|:CtrlP<cr>
+" ,f to open CtrP with word under cursor
+map <leader>f :CtrlP<CR><C-\>w
 " Double tap j to exit insert mode
 inoremap jj <Esc>
 " Double tap , to go to previous file
