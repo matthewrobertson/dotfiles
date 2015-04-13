@@ -13,6 +13,11 @@ fi
 if [[ -a "$HOME"/.fb.zshrc ]]; then
   source "$HOME"/.fb.zshrc
 fi
+
+if [[ -a "$HOME"/.fbvoip.zshrc ]]; then
+  source "$HOME"/.fbvoip.zshrc
+fi
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -49,7 +54,7 @@ DISABLE_CORRECTION="true"
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment following line if you want to  shown in the command execution time stamp 
+# Uncomment following line if you want to  shown in the command execution time stamp
 # in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
 # yyyy-mm-dd
 # HIST_STAMPS="mm/dd/yyyy"
