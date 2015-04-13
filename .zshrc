@@ -10,8 +10,14 @@ if id -u engshare >/dev/null 2>&1; then
   ln -Fs /home/engshare/hack-tools/vim/ ~/.vim/bundle/hack-vim
 fi
 
-if [[ -a "$HOME"/.fb.zshrc ]]; then
-  source "$HOME"/.fb.zshrc
+# Source devserver global definitions
+if [ -f /etc/zshrc ]; then
+  . /etc/zshrc
+fi
+
+# Source Facebook definitions
+if [ -f /mnt/vol/engshare/admin/scripts/master.zshrc ]; then
+  . /mnt/vol/engshare/admin/scripts/master.zshrc
 fi
 
 if [[ -a "$HOME"/.fbvoip.zshrc ]]; then
