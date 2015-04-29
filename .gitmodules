@@ -37,3 +37,6 @@
 [submodule ".vim/bundle/molokai-theme"]
 	path = .vim/bundle/molokai-theme
 	url = https://github.com/tomasr/molokai.git
+[submodule ".vim/bundle/vim-flow"]
+	path = .vim/bundle/vim-flow
+	url = https://github.com/facebook/vim-flow.git
