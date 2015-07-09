@@ -90,3 +90,6 @@ export EDITOR='vim'
 
 # never beep
 setopt no_beep
+
+# Enable Vi key bindings
+set -o vi
