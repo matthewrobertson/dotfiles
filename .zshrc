@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
+ZSH_CUSTOM=$HOME/.zsh_custom
 
 # Facebook Goodness
 if id -u engshare >/dev/null 2>&1; then
@@ -24,11 +25,15 @@ if [[ -a "$HOME"/.fbvoip.zshrc ]]; then
   source "$HOME"/.fbvoip.zshrc
 fi
 
+# Source devserver aliases
+if [[ -a "$HOME"/.devservers.zshrc ]]; then
+  source "$HOME"/.devservers.zshrc
+fi
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="wedisagree"
+ZSH_THEME="my-custom"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
