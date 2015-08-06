@@ -122,6 +122,8 @@ set timeout timeoutlen=300
 map <leader>t :CtrlPClearCache<cr>\|:CtrlP<cr>
 " ,f to open CtrP with word under cursor
 map <leader>f :CtrlP<CR><C-\>w
+" ,s to search and replace word under cursor
+:nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 " Double tap j to exit insert mode
 inoremap jj <Esc>
 " Double tap , to go to previous file
