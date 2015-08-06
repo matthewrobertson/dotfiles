@@ -38,6 +38,7 @@ ZSH_THEME="my-custom"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias tmux="tmux -2"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -98,3 +99,7 @@ setopt no_beep
 
 # Enable Vi key bindings
 set -o vi
+
+# make sure ctrl-r works to search history
+bindkey -v
+bindkey '^R' history-incremental-search-backward
