@@ -40,3 +40,6 @@
 [submodule ".vim/bundle/vim-flow"]
 	path = .vim/bundle/vim-flow
 	url = https://github.com/facebook/vim-flow.git
+[submodule ".vim/bundle/wombat256"]
+	path = .vim/bundle/wombat256
+	url = https://github.com/vim-scripts/wombat256.vim.git

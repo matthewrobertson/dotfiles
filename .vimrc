@@ -140,8 +140,7 @@ nnoremap <CR> :nohlsearch<cr>
 "" Style tweeks
 ""
 set t_Co=256
-color molokai
-let g:molokai_original = 1
+color wombat256mod
 set cursorline
 set number
 highlight CursorLineNr ctermfg=200
@@ -152,7 +151,8 @@ highlight Visual       ctermbg=3   ctermfg=0
 "" Highlight lines > 80 characters
 ""
 if exists('+colorcolumn')
-  set colorcolumn=80
+  let &colorcolumn=join(range(81,999),",")
+  highlight ColorColumn ctermbg=235 guibg=#2c2d27
 else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
