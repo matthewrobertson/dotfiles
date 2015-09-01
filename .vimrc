@@ -125,7 +125,7 @@ map <leader>f :CtrlP<CR><C-\>w
 " ,s to search and replace word under cursor
 :nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 " bind K to grep word under cursor
-:nnoremap K :ack "\b<C-R><C-W>\b"<CR>
+:nnoremap K :Ack "\b<C-R><C-W>\b"<CR>
 " Double tap j to exit insert mode
 inoremap jj <Esc>
 " Double tap , to go to previous file
