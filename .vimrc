@@ -26,6 +26,10 @@ endif
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_root_markers = ['.ctrlp']
 
+""
+"" Ack.vim stuff
+""
+let g:ack_default_options = " -H --nocolor --nogroup --column"
 
 ""
 "" No fucking beeping
