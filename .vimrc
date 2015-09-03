@@ -32,6 +32,13 @@ let g:ctrlp_root_markers = ['.ctrlp']
 let g:ack_default_options = " -H --nocolor --nogroup --column"
 
 ""
+"" NerdCommenter stuff
+""
+let NERDSpaceDelims=1
+nnoremap ,c :call NERDComment(0,"toggle")<CR>
+vnoremap ,c :call NERDComment(0,"toggle")<CR>
+
+""
 "" No fucking beeping
 ""
 set noerrorbells visualbell t_vb=
