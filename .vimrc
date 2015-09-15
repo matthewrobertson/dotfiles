@@ -6,6 +6,9 @@ set ruler             " Show line and column number
 syntax enable         " Turn on syntax highlighting allowing local overrides
 set encoding=utf-8    " Set default encoding to UTF-8
 
+" To disable a plugin, add it's bundle name to the following list
+let g:pathogen_disabled = ['ctrlp', 'ctrlp-py-matcher']
+
 " turn on pathogen
 execute pathogen#infect()
 
@@ -16,25 +19,43 @@ let mapleader=","
 "" Facebook Specific Stuff
 ""
 if filereadable(expand("~/.fb.vimrc"))
-  " make ctrlp root the current file only
   source ~/.fb.vimrc
 endif
 
 ""
 "" Ctrl-p stuff
 ""
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_root_markers = ['.ctrlp']
-let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+" let g:ctrlp_working_path_mode = 'ra'
+" let g:ctrlp_root_markers = ['.ctrlp']
+" let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+" if executable('ag')
+  " let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+" endif
+" let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+
+""
+"" Command-T stuff
+""
+let g:CommandTMaxHeight = 30
+let g:CommandTMaxFiles = 500000
+let g:CommandTInputDebounce = 200
+let g:CommandTFileScanner = 'watchman'
+let g:CommandTMaxCachedDirectories = 10
+let g:CommandTSmartCase = 1
 
 ""
 "" Ack.vim stuff
 ""
 let g:ack_default_options = " -H --nocolor --nogroup --column"
+
+""
+"" vim-multiple-cursors stuff
+""
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<C-d>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-k>'
+let g:multi_cursor_quit_key='<Esc>'
 
 ""
 "" NerdCommenter stuff
@@ -134,14 +155,14 @@ endif
 
 " make the timeout pretty fast
 set timeout timeoutlen=300
-" ,t to refresh and open fuzzy finder
-map <leader>t :CtrlPClearCache<cr>\|:CtrlP<cr>
-" ,f to open CtrP with word under cursor
-map <leader>f :CtrlP<CR><C-\>w
+" CTRL-P to open file picker
+nnoremap <c-p> :CommandT<CR>
+" CTRL-P with recently opened files only
+nnoremap <NUL> :CommandTMRU<CR>
 " ,s to search and replace word under cursor
-:nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 " bind K to grep word under cursor
-:nnoremap K :Ack "\b<C-R><C-W>\b"<CR>
+nnoremap K :Ack "\b<C-R><C-W>\b"<CR>
 " Double tap j to exit insert mode
 inoremap jj <Esc>
 " Double tap , to go to previous file
