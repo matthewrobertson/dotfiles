@@ -25,6 +25,11 @@ endif
 ""
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_root_markers = ['.ctrlp']
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 ""
 "" Ack.vim stuff
