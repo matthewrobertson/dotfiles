@@ -168,7 +168,7 @@ inoremap jj <Esc>
 " Double tap , to go to previous file
 nnoremap <leader><leader> <c-^>
 " Use \ to toggle NERDTree
-nnoremap \ :NERDTreeToggle<CR>
+nnoremap \ :NERDTreeToggle %<CR>
 " Don't lose selection after indenting block
 vnoremap < <gv
 vnoremap > >gv

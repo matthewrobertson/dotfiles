@@ -9,6 +9,9 @@ if id -u engshare >/dev/null 2>&1; then
 
   # symlink vim tools
   ln -Fs /home/engshare/hack-tools/vim/ ~/.vim/bundle/hack-vim
+
+  # needed to get hive working on ipv6 server
+  export HADOOP_OPTS='-Djava.net.preferIPv6Addresses=true'
 fi
 
 # Source devserver global definitions
