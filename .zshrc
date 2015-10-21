@@ -88,9 +88,6 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:/Users/mrobertson/opsrc/depot_tools
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# Preferred editor for local and remote sessions
-export EDITOR='vim'
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
