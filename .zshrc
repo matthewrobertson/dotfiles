@@ -88,6 +88,9 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:/Users/mrobertson/opsrc/depot_tools
 # export MANPATH="/usr/local/man:$MANPATH"
 
+# make sure we use emacs key bindings
+set -o emacs
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -96,9 +99,6 @@ export PATH=$PATH:/Users/mrobertson/opsrc/depot_tools
 
 # never beep
 setopt no_beep
-
-# Enable Vi key bindings
-set -o vi
 
 # make sure ctrl-r works to search history
 bindkey -v
