@@ -91,6 +91,9 @@ export PATH=$PATH:/Users/mrobertson/opsrc/depot_tools
 # make sure we use emacs key bindings
 set -o emacs
 
+# Preferred editor for local and remote sessions
+export EDITOR='vim'
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
