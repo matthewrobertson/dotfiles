@@ -90,6 +90,7 @@ export PATH=$PATH:/Users/mrobertson/opsrc/depot_tools
 
 # make sure we use emacs key bindings
 set -o emacs
+bindkey -e
 
 # Preferred editor for local and remote sessions
 export EDITOR='vim'
@@ -104,5 +105,4 @@ export EDITOR='vim'
 setopt no_beep
 
 # make sure ctrl-r works to search history
-bindkey -v
 bindkey '^R' history-incremental-search-backward
