@@ -1,3 +1,31 @@
+call plug#begin('~/.vim/plugged')
+Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'arty88/sexy-railscasts-256-theme'
+Plug 'jpo/vim-railscasts-theme'
+Plug 'sheerun/vim-wombat-scheme'
+Plug 'vim-airline/vim-airline'
+call plug#end()
+
+noremap <Char-0x07F> <BS>
+nnoremap <Char-0x07F> <BS>
+
+set backspace=indent,eol,start
+inoremap <Char-0x07F> <c-r>=Backspace()<CR>
+inoremap <BS> <c-r>=Backspace()<CR>
+
+func Backspace()
+  if col('.') == 1
+    if line('.')  != 1
+      return  "\<ESC>kA\<Del>"
+    else
+      return ""
+    endif
+  else
+    return "\<Left>\<Del>"
+  endif
+endfunc
+
 ""
 "" Basic Setup
 ""
@@ -6,63 +34,17 @@ set ruler             " Show line and column number
 syntax enable         " Turn on syntax highlighting allowing local overrides
 set encoding=utf-8    " Set default encoding to UTF-8
 
-" To disable a plugin, add it's bundle name to the following list
-let g:pathogen_disabled = ['ctrlp', 'ctrlp-py-matcher']
-
-" turn on pathogen
-execute pathogen#infect()
-
 " remap the leader key
 let mapleader=","
 
-""
-"" Facebook Specific Stuff
-""
-if filereadable(expand("~/.fb.vimrc"))
-  source ~/.fb.vimrc
+if !has("gui_running")
+  set term=xterm
+  set t_Co=256
+  let &t_AB="\e[48;5;%dm"
+  let &t_AF="\e[38;5;%dm"
 endif
 
-""
-"" Ctrl-p stuff
-""
-" let g:ctrlp_working_path_mode = 'ra'
-" let g:ctrlp_root_markers = ['.ctrlp']
-" let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-" if executable('ag')
-  " let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-" endif
-" let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
-""
-"" Command-T stuff
-""
-let g:CommandTMaxHeight = 30
-let g:CommandTMaxFiles = 500000
-let g:CommandTInputDebounce = 200
-let g:CommandTFileScanner = 'watchman'
-let g:CommandTMaxCachedDirectories = 10
-let g:CommandTSmartCase = 1
-
-""
-"" Ack.vim stuff
-""
-let g:ack_default_options = " -H --nocolor --nogroup --column"
-
-""
-"" vim-multiple-cursors stuff
-""
-let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<C-d>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-k>'
-let g:multi_cursor_quit_key='<Esc>'
-
-""
-"" NerdCommenter stuff
-""
-let NERDSpaceDelims=1
-nnoremap ,c :call NERDComment(0,"toggle")<CR>
-vnoremap ,c :call NERDComment(0,"toggle")<CR>
 
 ""
 "" No fucking beeping
@@ -110,7 +92,7 @@ let NERDTreeIgnore = ['\.pyc$', '\.orig$']
 ""
 set listchars=""                  " Reset the listchars
 set listchars=tab:\ \             " a tab should display as "  ", trailing whitespace as "."
-set listchars+=trail:.            " show trailing spaces as dots
+set listchars+=trail:-            " show trailing spaces as dots
 set listchars+=extends:>          " The character to show in the last column when wrap is
                                   " off and the line continues beyond the right of the screen
 set listchars+=precedes:<         " The character to show in the last column when wrap is
@@ -155,14 +137,8 @@ endif
 
 " make the timeout pretty fast
 set timeout timeoutlen=300
-" CTRL-P to open file picker
-nnoremap <c-p> :CommandT<CR>
-" CTRL-P with recently opened files only
-nnoremap <NUL> :CommandTMRU<CR>
 " ,s to search and replace word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
-" bind K to grep word under cursor
-nnoremap K :Ack "\b<C-R><C-W>\b"<CR>
 " Double tap j to exit insert mode
 inoremap jj <Esc>
 " Double tap , to go to previous file
@@ -179,7 +155,7 @@ nnoremap <CR> :nohlsearch<cr>
 "" Style tweeks
 ""
 set t_Co=256
-color wombat256mod
+colorscheme wombat
 set cursorline
 set number
 highlight CursorLineNr ctermfg=200
@@ -196,19 +172,3 @@ else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
-" set relativenumber    " Use relative line numbers
-" highlight clear SignColumn
-" highlight VertSplit    ctermbg=236
-" highlight ColorColumn  ctermbg=237
-" highlight LineNr       ctermbg=236 ctermfg=240
-" highlight LineNr guibg=#222222 guifg=#666666 ctermbg=black ctermfg=grey
-" highlight Normal guibg=#1B1B1B
-" hi! VertSplit guifg=#333333 guibg=#333333 gui=NONE ctermfg=black ctermbg=black cterm=NONE
-" highlight StatusLineNC ctermbg=238 ctermfg=0
-" highlight StatusLine   ctermbg=240 ctermfg=12
-" highlight IncSearch    ctermbg=0   ctermfg=3
-" highlight Search       ctermbg=0   ctermfg=9
-" highlight Pmenu        ctermbg=240 ctermfg=12
-" highlight PmenuSel     ctermbg=0   ctermfg=3
-" highlight SpellBad     ctermbg=0   ctermfg=1
-" hi Directory guifg=#9CBA3F ctermfg=green
