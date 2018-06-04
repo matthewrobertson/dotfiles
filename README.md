@@ -22,3 +22,10 @@ Alternatively, to update while avoiding the confirmation prompt:
 set -- -f; source bootstrap.sh
 ```
 
+## Windows stuff:
+
+The source script doesn't work on windows. Instead just copy the dotfiles you
+want into ~.
+
+Visual Studio code settings are in: `%APPDATA%\Code\User\settings.json`
+
