@@ -2,46 +2,29 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/.zsh_custom
 
-# Facebook Goodness
-if id -u engshare >/dev/null 2>&1; then
-  export ADMIN_SCRIPTS=~engshare/admin/scripts
-  source "$ADMIN_SCRIPTS"/master.zshrc
-
-  # symlink vim tools
-  ln -Fs /home/engshare/hack-tools/vim/ ~/.vim/bundle/hack-vim
-
-  # needed to get hive working on ipv6 server
-  export HADOOP_OPTS='-Djava.net.preferIPv6Addresses=true'
-fi
-
-# Source devserver global definitions
-if [ -f /etc/zshrc ]; then
-  . /etc/zshrc
-fi
-
-# Source Facebook definitions
-if [ -f /mnt/vol/engshare/admin/scripts/master.zshrc ]; then
-  . /mnt/vol/engshare/admin/scripts/master.zshrc
-fi
-
-if [[ -a "$HOME"/.fbvoip.zshrc ]]; then
-  source "$HOME"/.fbvoip.zshrc
-fi
-
-# Source devserver aliases
-if [[ -a "$HOME"/.devservers.zshrc ]]; then
-  source "$HOME"/.devservers.zshrc
-fi
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="my-custom"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias tmux="tmux -2"
+alias d='dirs -v | head -10'
+alias 1='cd -'
+alias 2='cd -2'
+alias 3='cd -3'
+alias 4='cd -4'
+alias 5='cd -5'
+alias 6='cd -6'
+alias 7='cd -7'
+alias 8='cd -8'
+alias 9='cd -9'
+
+alias cds='cd ~/spool'
+alias cdo='cd ~/opensource'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -106,3 +89,7 @@ setopt no_beep
 
 # make sure ctrl-r works to search history
 bindkey '^R' history-incremental-search-backward
+
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
