@@ -25,6 +25,7 @@ alias 9='cd -9'
 
 alias cds='cd ~/spool'
 alias cdo='cd ~/opensource'
+alias cdocs='cd ~/spool/azure-docs-pr/articles/project-spool'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
