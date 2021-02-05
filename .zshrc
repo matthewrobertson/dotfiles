@@ -5,6 +5,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+if [[ "${HOME}/.env-secrets.zsh" ]]; then
+  source "${HOME}/.env-secrets.zsh"
+fi
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/.zsh_custom
@@ -35,6 +39,10 @@ alias 9='cd -9'
 alias cds='cd ~/spool'
 alias cdo='cd ~/opensource'
 alias cdocs='cd ~/spool/azure-docs-pr/articles/project-spool'
+
+
+alias python='python3'
+alias pip='pip3'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -70,7 +78,7 @@ DISABLE_CORRECTION="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git mercurial)
+plugins=(git mercurial z)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -79,7 +87,11 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export PATH=$PATH:/Users/mrobertson/opsrc/depot_tools
+
 # export MANPATH="/usr/local/man:$MANPATH"
+
+# ACS connection string
+export COMMUNICATION_SERVICES_CONNECTION_STRING="endpoint=https://anhincomingcalls.westus.communications.azure.com/;accesskey=A9el+2kLtv/8mqQhBVUvMBgQcR5BavrATVHqyR73hYtnwmaaNNyQt5mg5OcU7iJqv5dobH7TkXZY1noztmOuSw=="
 
 # make sure we use emacs key bindings
 set -o emacs
